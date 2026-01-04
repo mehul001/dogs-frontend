@@ -85,69 +85,6 @@ export class DogsListComponent implements OnInit {
     });
   }
 
-  // viewDog(dog: Dog) {
-  //   this.selectedDog = dog;
-  //   this.dialogMode = 'view';
-  //   this.showDialog = true;
-  // }
-
-  // editDog(dog: Dog) {
-  //   this.selectedDog = dog;
-  //   this.editDogId = dog.id;
-  //   this.dialogMode = 'edit';
-    
-  //   this.editForm.patchValue({
-  //     name: dog.name ?? '',
-  //     breed: dog.breed ?? '',
-  //     badgeId: dog.badgeId ?? '',
-  //     gender: dog.gender ?? '',
-  //     currentStatus: dog.currentStatus ?? '',
-  //     kennellingCharacteristic: dog.kennellingCharacteristic ?? '',
-  //     leavingReason: dog.leavingReason ?? ''
-  //   });
-
-  //   this.showDialog = true;
-  // }
-
-  // submitEdit() { console.log('Edit form submitted');
-  //   const v = this.editForm.value;
-  //   console.log('Edit form values:', v);
-  //   if (v.currentStatus === 'Left' && !v.leavingReason) {
-  //     this.messageService.add({
-  //       severity: 'error',
-  //       summary: 'Error',
-  //       detail: 'Leaving reason is required'
-  //     });
-  //     return;
-  //   }
-
-  //   const payload = {
-  //     ...this.selectedDog,
-  //     ...v,
-  //     kennellingCharacteristic: v.kennellingCharacteristic || undefined,
-  //     leavingReason: v.leavingReason || null
-  //   };
-
-  //   console.log('Submitting edit with payload:', payload);
-
-  //   this.store.dispatch(DogsActions.updateDog({
-  //     id: this.editDogId,
-  //     dog: payload
-  //   }));
-
-  //   this.showDialog = false;
-  // }
-
-  // confirmDelete(dog: Dog) {
-  //   this.confirmationService.confirm({
-  //     message: `Delete ${dog.name}?`,
-  //     accept: () => {
-  //       this.store.dispatch(DogsActions.deleteDog({ id: dog.id }));
-  //       this.messageService.add({ severity: 'success', summary: 'Deleted', detail: 'Dog deleted' });
-  //     }
-  //   });
-  // }
-
   clearError() {
     this.store.dispatch(DogsActions.clearError());
   }
