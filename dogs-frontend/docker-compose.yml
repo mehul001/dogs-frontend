@@ -1,0 +1,32 @@
+services:
+  # Django Backend API
+  django-backend:
+    build: ./django-backend
+    container_name: dogs-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./django-backend:/app
+      - django_static:/app/staticfiles
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=django-insecure-development-key
+    command: >
+      sh -c "python manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py create_admin &&
+             python manage.py loaddata initial_data.json &&
+             python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - dogs-network
+
+volumes:
+  django_static:
+
+networks:
+  dogs-network:
+    driver: bridge
+
+
+
+

@@ -1,0 +1,226 @@
+[
+  {
+    "model": "dogs.dog",
+    "pk": 1,
+    "fields": {
+      "name": "Max",
+      "breed": "German Shepherd",
+      "supplier": "Silver Kennels",
+      "badge_id": "K9-001",
+      "gender": "Male",
+      "birth_date": "2020-03-15",
+      "date_acquired": "2021-01-10",
+      "current_status": "In Service",
+      "leaving_date": null,
+      "leaving_reason": null,
+      "kennelling_characteristic": "Highly social, excellent with children",
+      "deleted": false,
+      "created_at": "2021-01-10T08:00:00Z",
+      "updated_at": "2024-01-15T10:30:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 2,
+    "fields": {
+      "name": "Bella",
+      "breed": "Labrador Retriever",
+      "supplier": "Golden Paws",
+      "badge_id": "K9-002",
+      "gender": "Female",
+      "birth_date": "2019-07-22",
+      "date_acquired": "2020-09-05",
+      "current_status": "In Training",
+      "leaving_date": null,
+      "leaving_reason": null,
+      "kennelling_characteristic": "Energetic, needs regular exercise",
+      "deleted": false,
+      "created_at": "2020-09-05T09:15:00Z",
+      "updated_at": "2024-01-20T14:45:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 3,
+    "fields": {
+      "name": "Rocky",
+      "breed": "Belgian Malinois",
+      "supplier": "Elite Canine",
+      "badge_id": "K9-003",
+      "gender": "Male",
+      "birth_date": "2018-11-08",
+      "date_acquired": "2019-03-12",
+      "current_status": "Retired",
+      "leaving_date": "2023-12-01",
+      "leaving_reason": "Retired (Re-housed)",
+      "kennelling_characteristic": "Calm temperament, good for families",
+      "deleted": false,
+      "created_at": "2019-03-12T11:20:00Z",
+      "updated_at": "2023-12-01T16:00:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 4,
+    "fields": {
+      "name": "Luna",
+      "breed": "Dutch Shepherd",
+      "supplier": "Silver Kennels",
+      "badge_id": "K9-004",
+      "gender": "Female",
+      "birth_date": "2021-05-14",
+      "date_acquired": "2022-02-28",
+      "current_status": "In Service",
+      "leaving_date": null,
+      "leaving_reason": null,
+      "kennelling_characteristic": "Excellent tracking abilities",
+      "deleted": false,
+      "created_at": "2022-02-28T13:45:00Z",
+      "updated_at": "2024-01-18T09:20:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 5,
+    "fields": {
+      "name": "Duke",
+      "breed": "Rottweiler",
+      "supplier": "Guardian Dogs Inc",
+      "badge_id": "K9-005",
+      "gender": "Male",
+      "birth_date": "2017-09-03",
+      "date_acquired": "2018-01-15",
+      "current_status": "Left",
+      "leaving_date": "2023-08-15",
+      "leaving_reason": "Transferred",
+      "kennelling_characteristic": "Strong protective instincts",
+      "deleted": false,
+      "created_at": "2018-01-15T10:30:00Z",
+      "updated_at": "2023-08-15T14:20:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 6,
+    "fields": {
+      "name": "Sasha",
+      "breed": "Border Collie",
+      "supplier": "Golden Paws",
+      "badge_id": "K9-006",
+      "gender": "Female",
+      "birth_date": "2020-12-10",
+      "date_acquired": "2021-06-20",
+      "current_status": "In Training",
+      "leaving_date": null,
+      "leaving_reason": null,
+      "kennelling_characteristic": "Highly intelligent, quick learner",
+      "deleted": false,
+      "created_at": "2021-06-20T15:10:00Z",
+      "updated_at": "2024-01-22T11:30:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 7,
+    "fields": {
+      "name": "Thor",
+      "breed": "German Shepherd",
+      "supplier": "Elite Canine",
+      "badge_id": "K9-007",
+      "gender": "Male",
+      "birth_date": "2019-04-25",
+      "date_acquired": "2020-01-08",
+      "current_status": "In Service",
+      "leaving_date": null,
+      "leaving_reason": null,
+      "kennelling_characteristic": "Fearless, excellent for patrol work",
+      "deleted": false,
+      "created_at": "2020-01-08T12:00:00Z",
+      "updated_at": "2024-01-19T16:45:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 8,
+    "fields": {
+      "name": "Zara",
+      "breed": "Malinois",
+      "supplier": "Silver Kennels",
+      "badge_id": "K9-008",
+      "gender": "Female",
+      "birth_date": "2021-08-18",
+      "date_acquired": "2022-03-10",
+      "current_status": "In Training",
+      "leaving_date": null,
+      "leaving_reason": null,
+      "kennelling_characteristic": "High energy, needs experienced handler",
+      "deleted": false,
+      "created_at": "2022-03-10T14:30:00Z",
+      "updated_at": "2024-01-21T08:15:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 9,
+    "fields": {
+      "name": "Bruno",
+      "breed": "Doberman Pinscher",
+      "supplier": "Guardian Dogs Inc",
+      "badge_id": "K9-009",
+      "gender": "Male",
+      "birth_date": "2016-06-12",
+      "date_acquired": "2017-02-20",
+      "current_status": "Retired",
+      "leaving_date": "2023-10-30",
+      "leaving_reason": "Retired (Put Down)",
+      "kennelling_characteristic": "Loyal companion, medical issues",
+      "deleted": false,
+      "created_at": "2017-02-20T09:45:00Z",
+      "updated_at": "2023-10-30T12:00:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 10,
+    "fields": {
+      "name": "Maya",
+      "breed": "Labrador Retriever",
+      "supplier": "Golden Paws",
+      "badge_id": "K9-010",
+      "gender": "Female",
+      "birth_date": "2020-01-30",
+      "date_acquired": "2021-04-15",
+      "current_status": "In Service",
+      "leaving_date": null,
+      "leaving_reason": null,
+      "kennelling_characteristic": "Gentle with suspects, excellent nose work",
+      "deleted": false,
+      "created_at": "2021-04-15T11:20:00Z",
+      "updated_at": "2024-01-17T13:10:00Z"
+    }
+  },
+  {
+    "model": "dogs.dog",
+    "pk": 11,
+    "fields": {
+      "name": "Test Dog",
+      "breed": "Test Breed",
+      "supplier": "Test Supplier",
+      "badge_id": "TEST-001",
+      "gender": "Male",
+      "birth_date": "2020-01-01",
+      "date_acquired": "2020-01-01",
+      "current_status": "In Training",
+      "leaving_date": null,
+      "leaving_reason": null,
+      "kennelling_characteristic": "This is a deleted test record",
+      "deleted": true,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  }
+]
+
+
+
+

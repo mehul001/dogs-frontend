@@ -1,0 +1,100 @@
+<div class="dogs-list-container">
+
+  <app-dogs-toolbar 
+    [showStatusCounts]="true" 
+    [showLiveControls]="false" 
+    [statusCounts]="statusCounts$ | async"
+    (filterChange)="onFilterChange($event)" 
+    (includeDeletedChange)="onIncludeDeletedChange($event)">
+  </app-dogs-toolbar>
+
+  <div *ngIf="loading$ | async" class="loading-container">
+    <p-progressSpinner strokeWidth="3"></p-progressSpinner>
+    <p>Loading dogs...</p>
+  </div>
+
+  <p-message *ngIf="(error$ | async)" severity="error" [text]="(error$ | async) ?? ''" [closable]="true"
+    (onClose)="clearError()">
+  </p-message>
+
+  <div *ngIf="!(loading$ | async) && !(error$ | async)" class="dogs-grid">
+    <p-card *ngFor="let dog of dogs$ | async" class="dog-card">
+      <div class="dog-info">
+        <div><strong>Name:</strong> {{ dog.name }}</div>
+        <div><strong>Breed:</strong> {{ dog.breed }}</div>
+        <div><strong>Badge ID:</strong> {{ dog.badgeId }}</div>
+        <div><strong>Gender:</strong> {{ dog.gender }}</div>
+        <div><strong>Status:</strong> {{ dog.currentStatus }}</div>
+      </div>
+
+      <div class="card-actions">
+        <button pButton label="View" class="p-button-text" (click)="viewDog(dog)"></button>
+        <button pButton label="Edit" class="p-button-text" (click)="editDog(dog)"></button>
+        <button pButton label="Delete" class="p-button-text p-button-danger" (click)="confirmDelete(dog)"></button>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<p-dialog [(visible)]="showDialog" [modal]="true" [dismissableMask]="true" [style]="{ width: '420px' }"
+  styleClass="dog-dialog" [header]="dialogMode === 'edit' ? 'Edit Dog' : 'Dog Details'">
+
+  <div class="dialog-card">
+
+    <!-- view mode -->
+    <ng-container *ngIf="dialogMode === 'view'">
+      <div class="view-row"><span>Name</span><strong>{{ selectedDog?.name }}</strong></div>
+      <div class="view-row"><span>Breed</span><strong>{{ selectedDog?.breed }}</strong></div>
+      <div class="view-row"><span>Badge ID</span><strong>{{ selectedDog?.badgeId }}</strong></div>
+      <div class="view-row"><span>Gender</span><strong>{{ selectedDog?.gender }}</strong></div>
+      <div class="view-row"><span>Status</span><strong>{{ selectedDog?.currentStatus }}</strong></div>
+      <div class="view-row"><span>Kennelling</span><strong>{{ selectedDog?.kennellingCharacteristic || '-' }}</strong>
+      </div>
+      <div class="view-row"><span>Leaving Reason</span><strong>{{ selectedDog?.leavingReason || '-' }}</strong></div>
+
+      <div class="dialog-footer">
+        <button pButton label="Close" (click)="showDialog=false"></button>
+      </div>
+    </ng-container>
+
+    <!-- edit mode -->
+    <form *ngIf="dialogMode === 'edit'" [formGroup]="editForm" (ngSubmit)="submitEdit()">
+      <div class="form-field"><label>Name</label><input pInputText formControlName="name"></div>
+      <div class="form-field"><label>Breed</label><input pInputText formControlName="breed"></div>
+      <div class="form-field"><label>Badge ID</label><input pInputText formControlName="badgeId"></div>
+
+      <div class="form-field">
+        <label>Gender</label>
+        <select formControlName="gender">
+          <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label>Status</label>
+        <select formControlName="currentStatus">
+          <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+        </select>
+      </div>
+
+      <div class="form-field"><label>Kennelling</label><input pInputText formControlName="kennellingCharacteristic">
+      </div>
+
+      <div class="form-field">
+        <label>Leaving Reason</label>
+        <select formControlName="leavingReason">
+          <option [ngValue]="undefined">None</option>
+          <option *ngFor="let lr of leavingReasons" [ngValue]="lr">{{ lr }}</option>
+        </select>
+      </div>
+
+      <div class="dialog-footer">
+        <button pButton label="Cancel" type="button" class="p-button-text" (click)="showDialog=false"></button>
+        <button pButton label="Save" type="submit" [disabled]="editForm.invalid"></button>
+      </div>
+    </form>
+  </div>
+</p-dialog>
+
+<p-toast position="top-right"></p-toast>
+<p-confirmDialog></p-confirmDialog>

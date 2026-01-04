@@ -1,0 +1,31 @@
+<div class="dogs-list-container">
+  <app-dogs-toolbar 
+    [showStatusCounts]="true" 
+    [showLiveControls]="false" 
+    [statusCounts]="statusCounts$ | async"
+    (filterChange)="onFilterChange($event)"
+    (includeDeletedChange)="onIncludeDeletedChange($event)">
+  </app-dogs-toolbar>
+
+  <div *ngIf="loading$ | async" class="loading-container">
+    <p-progressSpinner strokeWidth="3"></p-progressSpinner>
+    <p>Loading dogs...</p>
+  </div>
+
+  <p-message *ngIf="(error$ | async)" severity="error" [text]="(error$ | async) || ''" [closable]="true"
+    (onClose)="clearError()">
+  </p-message>
+
+  <div *ngIf="!(loading$ | async) && !(error$ | async)" class="dogs-grid">
+    <p-card *ngFor="let dog of dogs$ | async" class="dog-card">
+      <div class="dog-info">
+        <div><strong>Name:</strong> {{ dog.name }}</div>
+        <div><strong>Breed:</strong> {{ dog.breed }}</div>
+        <div><strong>Badge ID:</strong> {{ dog.badgeId }}</div>
+        <div><strong>Gender:</strong> {{ dog.gender }}</div>
+        <div><strong>Status:</strong> {{ dog.currentStatus }}</div>
+      </div>
+    </p-card>
+  </div>
+</div>
+
